@@ -1,0 +1,33 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="../extjs4/resources/css/ext-all.css">
+	<script type="text/javascript" src="../extjs4/ext-all.js"></script>
+
+	<script type="text/javascript" src="..extjs4/locale/ext-lang-pt_BR.js"></script>
+	<title>Aula 3</title>
+</head>
+<body>
+	<div id="datefield"></div>
+</body>
+	<script type="text/javascript">
+		Ext.onReady(function(){
+			Ext.create('Ext.FormPanel',{
+				renderTo: 'datefield',
+				labelWidth: 100,
+				frame: true,
+				title: 'Datepicker',
+				width: 380,
+				defaults: {
+					msgTarget: 'side',
+					width: 300
+				},
+				defaultType: 'datefield',
+				items: [{
+					fieldLabel: 'Data',
+					name: 'date'
+				}]			
+			});
+			
+		});
+	</script>
+</html>
