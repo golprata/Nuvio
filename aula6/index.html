@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="../extjs4/resources/css/ext-all.css">
+	<script type="text/javascript" src="../extjs4/ext-all.js"></script>	
+	
+	<title>Aula 6</title>
+	
+</head>
+<body>
+	<div id="botao01"></div>
+	<div id="botao02"></div>
+	<div id="botao03"></div>
+</body>
+	<script type="text/javascript">
+		
+		Ext.define('MeuBotao', {
+			extend: 'Ext.button.Button',			
+				
+				renderTo: Ext.getBody(),
+
+				initComponent: function(){
+
+					this.text = 'Meu Botao';  // apenas uma configuração 
+
+					this.callParent();
+				} 
+			});  
+
+		Ext.onReady(function(){
+			Ext.create('MeuBotao',{
+				renderTo: 'botao01',
+				//text: 'Meu Botao'   //sem a necessidade de repetir esse codigo 
+			});
+
+			Ext.create('MeuBotao',{
+				renderTo: 'botao02',
+				//text: 'Meu Botao'  //sem a necessidade de repetir esse codigo 
+			});
+
+			Ext.create('MeuBotao',{
+				renderTo: 'botao03',
+				//text: 'Meu Botao'  //sem a necessidade de repetir esse codigo 
+			});
+
+		});
+	</script>
+</html>

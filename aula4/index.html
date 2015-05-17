@@ -1,0 +1,33 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="../extjs4/resources/css/ext-all.css">
+	<script type="text/javascript" src="../extjs4/ext-all.js"></script>
+
+	<script type="text/javascript" src="../jquery/jquery.min.js"></script>
+	<title>Aula 4</title>
+</head>
+<body>
+	<div id="panelCt"></div>
+</body>
+	<script type="text/javascript">
+		Ext.onReady(function(){
+		//$(document).ready(function(){
+
+			Ext.create('widget.panel',{
+
+				renderTo: 'panelCt',
+
+				title: 'ExtJS 4 Panel',
+				width: 400,
+				height:300,
+				frame: true,
+				title: 'ExtJS 4 Panel',			
+
+				html: "<div id='contentID'></div>"			
+			});
+
+			$('#contentID').load('content.html');
+			
+		});
+	</script>
+</html>
