@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="../extjs4/resources/css/ext-all.css">
+	<script type="text/javascript" src="../extjs4/ext-all.js"></script>	
+	
+	<title>Aula 8</title>
+	
+</head>
+<body>	
+
+</body>
+	<script type="text/javascript">	 
+		
+		Ext.define('Aula08.componente.MeuBotao', {
+			extend: 'Ext.button.Button',
+
+			alias: 'widget.meubotao',			
+
+				initComponent: function(){
+
+					this.text = 'Meu Botao';  // apenas uma configuração 
+
+					this.callParent();
+				} 
+			});    	
+		
+		Ext.onReady(function(){
+			
+			Ext.widget('button',{
+				text: 'Meu botao do extjs',
+				renderTo: Ext.getBody()
+			});
+
+			Ext.create('Ext.window.Window', {
+    			title: 'Hello',
+		    	height: 200,
+  				 width: 400,
+ 		  		 
+  		  		items: {  // Let's put an empty grid in just to illustrate fit layout
+  		    			xtype: 'button',
+  		    			text: 'Click me!'
+    		       }
+			}).show();
+
+		});
+	</script>
+</html>

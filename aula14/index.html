@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="../extjs4/resources/css/ext-all.css">
+	<script type="text/javascript" src="../extjs4/ext-all.js"></script>
+	<title>Aula 14</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">		
+		
+	Ext.define('Pessoa',{
+		extend: 'Ext.data.Model',
+		
+		fields: [
+		    {name: 'id', type: 'int'},
+		    {name: 'nome', type: 'string'},
+		    {name: 'sobrenome', type: 'string'}
+		],
+		
+		proxy: {
+			type: 'rest',
+			url: 'dados/', 
+			format: 'json'
+		}, 
+		
+		hasMany: {model: 'Telefone', fereignKey: 'pessoa_id'},
+		hasOne: {model: 'Endereco', fereignKey: 'pessoaId'} // esse atributo foreignKey somente se a chave for diferente de ex: pessoa_id
+	});
+	
+	Ext.define('Telefone',{
+		extend: 'Ext.data.Model',
+		
+		fields: [
+		    {name: 'id', type: 'int'},
+		    {name: 'ddd', type: 'string'},
+		    {name: 'numero', type: 'string'},
+		    {name: 'pessoa_id', type: 'id'}
+		],
+		
+		proxy: {
+			type: 'rest',
+			url: 'dados/', 
+			format: 'json'
+		}, 
+		
+		belongsTo: {model: 'Pessoa', foreignKey: 'pessoa_id'}
+	});
+	
+	Ext.define('Endereco',{
+		extend: 'Ext.data.Model',
+		
+		fields: [
+		    {name: 'id', type: 'int'},
+		    {name: 'logradouro', type: 'string'},
+		    {name: 'numero', type: 'string'},
+		    {name: 'complemento', type: 'string'},
+		    {name: 'pessoaId', type: 'id'} // se escrever a chave estrangeira nesse modelo "pessoaId" deve se usar o atributo foreignKey
+		],
+		
+		proxy: {
+			type: 'rest',
+			url: 'dados/', 
+			format: 'json'
+		}
+	});
+
+	Ext.onReady(function(){		
+		Ext.onReady(function(){		
+			
+			Pessoa.load(1,{
+				success: function(pessoa){
+					console.log('Nome da Pessoa e: '+ pessoa.get('nome'));
+					
+					var telefones = pessoa.telefones();
+					
+					telefones.each(function(tel){
+						console.log(tel.get('ddd') + ' ' + tel.get('numero'));
+						
+						var p = tel.getPessoa();
+						
+						console.log('Numero pertence a ' + p.get('nome'));
+					});
+					
+					var end = pessoa.getEndereco();
+					console.log(end.get('logradouro') + ' ' + end.get('numero'));
+
+				}
+			});
+		});
+	});
+	
+</script>
+</html>

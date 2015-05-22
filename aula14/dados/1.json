@@ -1,0 +1,23 @@
+{
+	"id":1,
+	"nome":"Fabiano Costa",
+	"sobrenome":"costa",
+	"telefones": [
+		{
+			"id": 12,
+			"ddd": "11",
+			"numero": "3656-6657"
+		},
+		{
+			"id": 13,
+			"ddd": "19",
+			"numero": "9318-6657"
+		}
+	],
+	"endereco": {
+			"id": 14,
+			"logradouro": "rua mirante de serra",
+			"numero": "6",
+			"complemento": "apto 10"
+		},
+}

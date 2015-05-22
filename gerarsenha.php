@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 if (isset($_GET['pass'])) {
 	$senha = @md5($_GET['pass']);

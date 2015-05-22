@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="../extjs4/resources/css/ext-all.css">
+	<script type="text/javascript" src="../extjs4/ext-all.js"></script>
+	<title>Aula 20</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">	
+	
+	Ext.define('Contato',{
+		extend: 'Ext.data.Model',
+		
+		fields: [
+		    {name: 'ID', type: 'int'},
+		    {name: 'name', type: 'string'},
+		    {name: 'email', type: 'string'}
+		],
+		idProperty: 'ID' // caso o id na seja id com letra minusculas
+	});
+	
+	Ext.define('ContatosStore',{
+		extend: 'Ext.data.Store',
+		model: 'Contato',
+		proxy: {
+			type: 'ajax',
+			url: 'php/listaContatosXml.php', 
+			
+			reader: {
+				type: 'xml',  //json ou xml
+				root: 'contatos',
+				record: 'contato' // apenas no xml
+				
+			}
+		},
+		autoLoad: true
+	});
+
+	Ext.onReady(function(){		
+		
+		var store = Ext.create('ContatosStore');
+		store.load();
+		console.log(store);
+		
+	});
+</script>
+</html>

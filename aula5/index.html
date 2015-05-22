@@ -11,8 +11,7 @@
 
 </body>
 	<script type="text/javascript">
-		Ext.onReady(function(){
-			Ext.define('Usuario', {
+		Ext.define('Usuario', {
 				
 				nome : '',
 				senha: '',
@@ -35,6 +34,9 @@
 				console.log('callback foi chamado');
 			}
 			);
+		
+		Ext.onReady(function(){
+			
 
 			var usuario = Ext.create('Usuario',{
 				nome: 'Fabiano Costa',
