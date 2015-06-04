@@ -1,0 +1,9 @@
+body{
+	padding: 30px;	
+}
+p{
+	margin-bottom: 15px;
+}
+.icon-pinguim{
+	background-image: url("images/pinguim.gif") no-repeat 0px;
+}

@@ -17,7 +17,7 @@ while($contato = mysql_fetch_assoc($query)) {
     $xml.=      "<nome>" . $contato['name'] . "</nome>";
     $xml.=      "<email>" . $contato['email'] . "</email>";
     $xml.=   "</contato>";
-}
+}  
 
 $xml.="</contatos>";
 //var_dump($rows);      
