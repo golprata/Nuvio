@@ -44,20 +44,21 @@ function criaContato() {
 	$nome = $data->name;
 	$email = $data->email;
 	
-	// sql query
-	$query = sprintf ( "INSERT INTO Contact (name, email) VALUES ('%s', '%s')", mysql_real_escape_string ( $nome ), mysql_real_escape_string ( $email ) );
+// 	// sql query
+// 	$query = sprintf ( "INSERT INTO Contact (name, email) VALUES ('%s', '%s')", mysql_real_escape_string ( $nome ), mysql_real_escape_string ( $email ) );
 	
-	$rs = mysql_query ( $query );
+// 	$rs = mysql_query ( $query );
 	
-	// JSON
-	echo json_encode ( array (
-			"success" => mysql_errno () == 0,
-			"contatos" => array (
-					"id" => mysql_insert_id (),
-					"name" => $nome,
-					"email" => $email 
-			) 
-	) );
+// 	// JSON
+// 	echo json_encode ( array (
+// 			"success" => mysql_errno () == 0,
+// 			"contatos" => array (
+// 					"id" => mysql_insert_id (),
+// 					"name" => $nome,
+// 					"email" => $email 
+// 			) 
+// 	) );
+$_SESSION['user'] = $nome;
 }
 function atualizaContato() {
 	parse_str ( file_get_contents ( "php://input" ), $post_vars );
